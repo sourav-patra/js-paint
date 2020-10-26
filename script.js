@@ -198,7 +198,11 @@ loadStorageBtn.addEventListener('click', () => {
     restoreCanvas();
     setStatusAndSwitchToBrush('Canvas Saved');
   } else {
+    const prevTextContent = activeToolEl.textContent;
     activeToolEl.textContent = 'No Canvas Found';
+    setTimeout(() => {
+      activeToolEl.textContent = prevTextContent;
+    }, 1000);
   }
 
 });
@@ -210,7 +214,11 @@ clearStorageBtn.addEventListener('click', () => {
     // Active Tool
     setStatusAndSwitchToBrush('Local Storage Cleared');
   } else {
+    const prevTextContent = activeToolEl.textContent;
     activeToolEl.textContent = 'No Canvas to delete';
+    setTimeout(() => {
+      activeToolEl.textContent = prevTextContent;
+    }, 1000);
   }
   
 });
